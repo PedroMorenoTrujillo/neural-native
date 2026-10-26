@@ -6,6 +6,8 @@ Neural Native brings the Neural visual language to [Angular Native](https://ng-n
 
 **First public beta: `0.1.0-beta.1`.** APIs and framework compatibility may change before 1.0. Pin the version in your application lockfile and check compatibility before updating Angular Native.
 
+[Documentation and interactive examples](https://native.neuralui.org) · [npm package](https://www.npmjs.com/package/@neural-ui/native)
+
 ## Install
 
 Start with the compatible Angular Native template:
