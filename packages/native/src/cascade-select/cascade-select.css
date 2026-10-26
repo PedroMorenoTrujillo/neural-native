@@ -1,0 +1,13 @@
+.cascade-option {
+  min-height: 52px;
+  padding: 12px;
+  border-radius: 8px;
+}
+.cascade-selected {
+  background-color: var(--neu-tonal, #e9edfc);
+}
+
+.cascade-header { min-height: 48px; gap: 4px; }
+.cascade-back { min-width: 48px; min-height: 48px; align-items: center; justify-content: center; border-radius: 8px; }
+
+.cascade-option .label { font-size: var(--neu-row-size, 15px); line-height: var(--neu-row-line, 21px); font-weight: 500; } .cascade-option .muted { font-size: var(--neu-caption-size, 13px); line-height: var(--neu-caption-line, 18px); }

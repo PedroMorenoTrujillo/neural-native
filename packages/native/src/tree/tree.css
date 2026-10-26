@@ -1,0 +1,35 @@
+.tree-row {
+  min-height: 52px;
+  gap: 0;
+}
+.tree-disclosure {
+  width: 32px;
+  min-height: 48px;
+  justify-content: center;
+  align-items: center;
+}
+.tree-spacer {
+  width: 32px;
+}
+.tree-node {
+  min-height: 48px;
+  padding: 8px;
+  border-radius: 8px;
+  gap: 8px;
+}
+.tree-copy {
+  gap: 4px;
+}
+.tree-selected {
+  background-color: var(--neu-tonal, #e9edfc);
+}
+.tree-selected-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--neu-accent-ink, #3155d9);
+}
+.tree-branch-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--neu-text, #172033);
+}

@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@ng-native/*": [
+        "./node_modules/@ng-native/*"
+      ],
+      "@ng-native/components/*": [
+        "./node_modules/@ng-native/components/dist/*"
+      ],
+      "@ng-native/expo/*": [
+        "./node_modules/@ng-native/expo/dist/*"
+      ],
+      "@ng-native/platform/*": [
+        "./node_modules/@ng-native/platform/dist/*"
+      ],
+      "@ng-native/web/*": [
+        "./node_modules/@ng-native/web/dist/*"
+      ]
+    }
+  }
+}

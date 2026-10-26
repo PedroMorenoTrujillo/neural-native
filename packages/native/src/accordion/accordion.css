@@ -1,0 +1,8 @@
+.accordion { gap: 0; background-color: var(--neu-surface, #ffffff); border-radius: var(--neu-surface-radius, 16px); overflow: hidden; }
+.accordion-item { background-color: var(--neu-surface, #ffffff); }
+.accordion-header { flex-direction: row; align-items: center; gap: 12px; min-height: 52px; padding: var(--neu-space-16, 16px); }
+.accordion-title { flex: 1; flex-shrink: 1; font-size: var(--neu-row-size, 15px); line-height: var(--neu-row-line, 21px); font-weight: 500; color: var(--neu-text, #172033); }
+.accordion-body { padding: 0 var(--neu-space-16, 16px) var(--neu-space-16, 16px); }
+.accordion-description { flex-shrink: 1; font-size: var(--neu-label-size, 14px); line-height: var(--neu-row-line, 21px); color: var(--neu-muted, #596477); }
+
+.accordion-divider { height: 1px; margin-left: 16px; margin-right: 16px; background-color: var(--neu-divider, #e7ebf0); }

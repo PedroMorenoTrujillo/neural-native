@@ -1,0 +1,7 @@
+.carousel-stage { width: 100%; min-width: 0; position: relative; overflow: hidden; border-radius: var(--neu-radius, 12px); }
+.carousel-outgoing { position: absolute; top: 0; left: 0; width: 100%; height: 240px; }
+.carousel-controls { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.carousel-navigation { flex-direction: row; align-items: center; gap: 8px; }
+.carousel-count { min-width: 40px; flex-shrink: 0; text-align: center; }
+
+.carousel-count { font-size: var(--neu-caption-size, 13px); line-height: var(--neu-caption-line, 18px); }

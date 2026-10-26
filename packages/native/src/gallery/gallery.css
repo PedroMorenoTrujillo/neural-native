@@ -1,0 +1,10 @@
+.gallery-stage { position: relative; width: 100%; min-width: 0; overflow: hidden; }
+.gallery-outgoing { position: absolute; top: 0; left: 0; }
+.gallery { width: 100%; min-width: 0; flex-direction: column; }
+.gallery-mosaic { flex-direction: row; align-items: flex-start; }
+.gallery-group { width: 100%; min-width: 0; flex-direction: row; align-items: flex-start; }
+.gallery-column { width: auto; flex: 1; flex-direction: column; }
+.gallery-item, .gallery-placeholder { min-width: 0; flex: 1; }
+.gallery-item { gap: 8px; }
+.mosaic-item { width: 100%; flex-grow: 0; flex-shrink: 0; flex-basis: auto; }
+.gallery-image { width: 100%; }

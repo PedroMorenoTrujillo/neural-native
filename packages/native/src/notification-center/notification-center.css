@@ -1,0 +1,9 @@
+.notification { flex-direction: row; align-items: center; gap: 12px; padding: 16px 12px; border-radius: 12px; border-width: 1px; border-color: var(--neu-border); background-color: var(--neu-surface); }
+.notification.unread { background-color: var(--neu-tonal); }
+.notification.disabled { opacity: 0.45; }
+.notification-copy { flex: 1; min-width: 0; gap: 6px; }
+.notification-title { color: var(--neu-text); font-size: 16px; font-weight: 600; }
+.read-dot { width: 8px; height: 8px; border-radius: 4px; background-color: transparent; }
+.read-dot.new-dot { background-color: var(--neu-accent); }
+.unread-count { padding: 4px 8px; border-radius: 12px; background-color: var(--neu-tonal); }
+.count-text { color: var(--neu-accent-ink, #3155d9); font-size: 12px; font-weight: 600; }

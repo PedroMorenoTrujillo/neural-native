@@ -1,0 +1,32 @@
+{
+  "name": "@neural-native/consumer-test",
+  "version": "0.0.1",
+  "private": true,
+  "main": "src/main.ts",
+  "dependencies": {
+    "@angular/common": "22.2.2",
+    "@angular/core": "22.2.2",
+    "@neural-ui/native": "0.1.0-beta.1",
+    "@ng-native/components": "0.18.2",
+    "@ng-native/device": "0.18.2",
+    "@ng-native/fabric": "0.18.2",
+    "@ng-native/metro": "0.18.2",
+    "@ng-native/platform": "0.18.2",
+    "expo": "57.0.27",
+    "expo-document-picker": "57.0.3",
+    "expo-status-bar": "57.0.1",
+    "expo-system-ui": "57.0.4",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "5.7.0",
+    "react-native-svg": "15.15.4"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "22.2.2",
+    "@babel/core": "7.29.7",
+    "@ng-native/testing": "0.18.2",
+    "@types/react": "19.2.18",
+    "typescript": "6.0.3",
+    "vitest": "5.0.3"
+  }
+}

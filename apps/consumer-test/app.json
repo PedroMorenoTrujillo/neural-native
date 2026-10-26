@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "consumer-test",
+    "slug": "consumer-test",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.neuralui.consumer"
+    },
+    "android": {
+      "package": "com.neuralui.consumer",
+      "predictiveBackGestureEnabled": false
+    },
+    "scheme": "consumertest",
+    "extra": {
+      "router": {
+        "root": "src/app"
+      }
+    },
+    "plugins": [
+      "@ng-native/metro"
+    ]
+  }
+}

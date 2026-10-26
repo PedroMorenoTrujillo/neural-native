@@ -1,0 +1,12 @@
+.plain { gap: 6px; }
+.plain .action {
+  min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: transparent;
+}
+.plain .action.selected { background-color: var(--neu-tonal, #eff6ff); }
+.plain .option-content { min-width: 0; gap: 4px; }
+.plain .option-title { color: var(--neu-text, #172033); font-size: var(--neu-row-size, 15px); line-height: var(--neu-row-line, 21px); font-weight: 500; }
+.plain .option-description { color: var(--neu-muted, #596477); font-size: var(--neu-caption-size, 13px); line-height: var(--neu-caption-line, 18px); }
+.plain .selected-text { color: var(--neu-accent-ink, #3155d9); }

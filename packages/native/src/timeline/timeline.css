@@ -1,0 +1,36 @@
+.timeline-item {
+  flex-direction: row;
+  align-items: stretch;
+}
+.timeline-rail {
+  width: 24px;
+  align-items: center;
+  margin-right: 12px;
+  padding-top: 2px;
+}
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-color: var(--neu-accent, #3155d9);
+  border-radius: 8px;
+}
+.timeline-done {
+  background-color: var(--neu-accent, #3155d9);
+}
+.timeline-connector {
+  flex: 1;
+  width: 2px;
+  min-height: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background-color: var(--neu-border, #c6cede);
+}
+.timeline-content {
+  flex: 1;
+  gap: 6px;
+  padding-bottom: 28px;
+}
+.timeline-last {
+  padding-bottom: 0;
+}

@@ -1,0 +1,514 @@
+[
+  {
+    "entry": "button",
+    "name": "Button",
+    "symbol": "NeuButtonComponent",
+    "example": "<neu-button label=\"Save\" (pressed)=\"save()\" />",
+    "inputs": "label*, accessibilityLabel, variant, size, disabled, loading",
+    "outputs": "pressed"
+  },
+  {
+    "entry": "icon-button",
+    "name": "IconButton",
+    "symbol": "NeuIconButtonComponent",
+    "example": "<neu-icon-button label=\"Add\" [svg]=\"iconSvg\" (pressed)=\"add()\" />",
+    "inputs": "label*, svg*, variant, disabled, loading",
+    "outputs": "pressed"
+  },
+  {
+    "entry": "input",
+    "name": "Input",
+    "symbol": "NeuInputComponent",
+    "example": "<neu-input label=\"Name\" [(value)]=\"name\" />",
+    "inputs": "value, label*, placeholder, hint, error, disabled, readonly, invalid, touched, maxLength, keyboardType",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "textarea",
+    "name": "Textarea",
+    "symbol": "NeuTextareaComponent",
+    "example": "<neu-textarea label=\"Notes\" [(value)]=\"notes\" />",
+    "inputs": "value, label*, placeholder, hint, error, disabled, readonly, invalid, touched, maxLength",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "checkbox",
+    "name": "Checkbox",
+    "symbol": "NeuCheckboxComponent",
+    "example": "<neu-checkbox label=\"Accept\" [(checked)]=\"accepted\" />",
+    "inputs": "label*, checked, disabled, readonly, invalid, touched",
+    "outputs": "checkedChange, touch"
+  },
+  {
+    "entry": "switch",
+    "name": "Switch",
+    "symbol": "NeuSwitchComponent",
+    "example": "<neu-switch label=\"Notifications\" [(checked)]=\"enabled\" />",
+    "inputs": "label*, hint, checked, disabled, readonly, invalid, touched",
+    "outputs": "checkedChange, touch"
+  },
+  {
+    "entry": "card",
+    "name": "Card",
+    "symbol": "NeuCardComponent",
+    "example": "<neu-card title=\"Account\" description=\"Profile\"><text>Content</text></neu-card>",
+    "inputs": "title, description, variant",
+    "outputs": ""
+  },
+  {
+    "entry": "badge",
+    "name": "Badge",
+    "symbol": "NeuBadgeComponent",
+    "example": "<neu-badge label=\"Ready\" tone=\"success\" />",
+    "inputs": "label*, tone",
+    "outputs": ""
+  },
+  {
+    "entry": "spinner",
+    "name": "Spinner",
+    "symbol": "NeuSpinnerComponent",
+    "example": "<neu-spinner label=\"Saving\" showLabel />",
+    "inputs": "label, size, active, showLabel",
+    "outputs": ""
+  },
+  {
+    "entry": "divider",
+    "name": "Divider",
+    "symbol": "NeuDividerComponent",
+    "example": "<neu-divider orientation=\"horizontal\" />",
+    "inputs": "orientation",
+    "outputs": ""
+  },
+  {
+    "entry": "accordion",
+    "name": "Accordion",
+    "symbol": "NeuAccordionComponent",
+    "example": "<neu-accordion  />",
+    "inputs": "items, expanded, multiple, disabled",
+    "outputs": "expandedChange"
+  },
+  {
+    "entry": "alert",
+    "name": "Alert",
+    "symbol": "NeuAlertComponent",
+    "example": "<neu-alert message=\"Operation completed\" [closable]=\"true\" />",
+    "inputs": "title, message*, visible, closable, closeLabel",
+    "outputs": "visibleChange, closed"
+  },
+  {
+    "entry": "autocomplete",
+    "name": "Autocomplete",
+    "symbol": "NeuAutocompleteComponent",
+    "example": "<neu-autocomplete label=\"Find an option\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, options, emptyLabel, minLength",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "avatar",
+    "name": "Avatar",
+    "symbol": "NeuAvatarComponent",
+    "example": "<neu-avatar label=\"Ada Lovelace\" />",
+    "inputs": "label*, uri",
+    "outputs": ""
+  },
+  {
+    "entry": "avatar-group",
+    "name": "Avatar Group",
+    "symbol": "NeuAvatarGroupComponent",
+    "example": "<neu-avatar-group [max]=\"2\" />",
+    "inputs": "items, max, moreLabel",
+    "outputs": ""
+  },
+  {
+    "entry": "bottom-sheet",
+    "name": "Bottom Sheet",
+    "symbol": "NeuBottomSheetComponent",
+    "example": "<neu-bottom-sheet title=\"Native sheet\" [open]=\"true\" />",
+    "inputs": "open, title*, dismissible, closeLabel",
+    "outputs": "openChange, closed, opened, dismissed"
+  },
+  {
+    "entry": "button-group",
+    "name": "Button Group",
+    "symbol": "NeuButtonGroupComponent",
+    "example": "<neu-button-group  />",
+    "inputs": "label, items, disabled",
+    "outputs": "activated"
+  },
+  {
+    "entry": "calendar",
+    "name": "Calendar",
+    "symbol": "NeuCalendarComponent",
+    "example": "<neu-calendar locale=\"es\" />",
+    "inputs": "label, value, month, locale, firstDay, min, max, disabled, readonly, previousLabel, nextLabel, events",
+    "outputs": "valueChange, monthChange, touch"
+  },
+  {
+    "entry": "carousel",
+    "name": "Carousel",
+    "symbol": "NeuCarouselComponent",
+    "example": "<neu-carousel  />",
+    "inputs": "items, index, loop, previousLabel, nextLabel, emptyLabel",
+    "outputs": "indexChange"
+  },
+  {
+    "entry": "cascade-select",
+    "name": "Cascade Select",
+    "symbol": "NeuCascadeSelectComponent",
+    "example": "<neu-cascade-select label=\"Team\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, nodes, backLabel",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "chip",
+    "name": "Chip",
+    "symbol": "NeuChipComponent",
+    "example": "<neu-chip label=\"Angular\" [removable]=\"true\" />",
+    "inputs": "label*, selected, selectable, removable, disabled, removeLabel",
+    "outputs": "selectedChange, removed"
+  },
+  {
+    "entry": "confirm-dialog",
+    "name": "Confirm Dialog",
+    "symbol": "NeuConfirmDialogComponent",
+    "example": "<neu-confirm-dialog title=\"Delete item\" message=\"Your application decides what happens after confirmation.\" [open]=\"true\" confirmLabel=\"Confirm\" />",
+    "inputs": "open, title*, message*, confirmLabel, cancelLabel, busy",
+    "outputs": "openChange, confirmed, cancelled, opened, dismissed"
+  },
+  {
+    "entry": "context-menu",
+    "name": "Context Menu",
+    "symbol": "NeuContextMenuComponent",
+    "example": "<neu-context-menu label=\"Press and hold this message\" />",
+    "inputs": "label*, items, hint, actionsLabel, disabled, open",
+    "outputs": "openChange, activated, pressed"
+  },
+  {
+    "entry": "data-view",
+    "name": "Data View",
+    "symbol": "NeuDataViewComponent",
+    "example": "<neu-data-view  />",
+    "inputs": "items, query, descending, loading, error, searchLabel, sortLabel, refreshLabel, emptyLabel",
+    "outputs": "queryChange, descendingChange, selected, refresh"
+  },
+  {
+    "entry": "date-input",
+    "name": "Date Input",
+    "symbol": "NeuDateInputComponent",
+    "example": "<neu-date-input label=\"Date\" locale=\"es\" value=\"2026-10-09\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, min, max, locale, placeholder",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "empty-state",
+    "name": "Empty State",
+    "symbol": "NeuEmptyStateComponent",
+    "example": "<neu-empty-state title=\"No results\" description=\"You can try again\" actionLabel=\"Retry\" />",
+    "inputs": "title*, description, actionLabel",
+    "outputs": "action"
+  },
+  {
+    "entry": "filter-bar",
+    "name": "Filter Bar",
+    "symbol": "NeuFilterBarComponent",
+    "example": "<neu-filter-bar  />",
+    "inputs": "label, options, value, query, disabled, searchLabel, clearLabel",
+    "outputs": "valueChange, queryChange"
+  },
+  {
+    "entry": "form-field",
+    "name": "Form Field",
+    "symbol": "NeuFormFieldComponent",
+    "example": "<neu-form-field label=\"Email\" hint=\"The control is projected inside the field\" />",
+    "inputs": "label*, required, invalid, error, hint",
+    "outputs": ""
+  },
+  {
+    "entry": "gallery",
+    "name": "Gallery",
+    "symbol": "NeuGalleryComponent",
+    "example": "<neu-gallery  />",
+    "inputs": "label, items, emptyLabel, index, open",
+    "outputs": "indexChange, openChange"
+  },
+  {
+    "entry": "image-viewer",
+    "name": "Image Viewer",
+    "symbol": "NeuImageViewerComponent",
+    "example": "<neu-image-viewer [open]=\"true\" />",
+    "inputs": "open, items, index, label, closeLabel, previousLabel, nextLabel, zoomLabel, errorLabel",
+    "outputs": "openChange, indexChange, closed, opened, dismissed"
+  },
+  {
+    "entry": "inline-editor",
+    "name": "Inline Editor",
+    "symbol": "NeuInlineEditorComponent",
+    "example": "<neu-inline-editor label=\"Edit title\" value=\"Original title\" [required]=\"true\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, editing, required, placeholder, saveLabel, cancelLabel",
+    "outputs": "valueChange, touch, editingChange, saved, cancelled"
+  },
+  {
+    "entry": "input-mask",
+    "name": "Input Mask",
+    "symbol": "NeuInputMaskComponent",
+    "example": "<neu-input-mask mask=\"### ### ###\" label=\"Phone\" keyboardType=\"phone-pad\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, mask*, keyboardType",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "input-otp",
+    "name": "Input OTP",
+    "symbol": "NeuInputOtpComponent",
+    "example": "<neu-input-otp label=\"Access code\" [length]=\"6\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, length",
+    "outputs": "valueChange, touch, completed"
+  },
+  {
+    "entry": "input-tags",
+    "name": "Input Tags",
+    "symbol": "NeuInputTagsComponent",
+    "example": "<neu-input-tags label=\"Tags\" addLabel=\"Add\" />",
+    "inputs": "label*, value, disabled, readonly, max, addLabel",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "listbox",
+    "name": "Listbox",
+    "symbol": "NeuListboxComponent",
+    "example": "<neu-listbox label=\"Options\" [multiple]=\"true\" />",
+    "inputs": "label*, options, value, multiple, disabled, readonly, emptyLabel",
+    "outputs": "valueChange, selected, touch"
+  },
+  {
+    "entry": "menu",
+    "name": "Menu",
+    "symbol": "NeuMenuComponent",
+    "example": "<neu-menu label=\"Actions\" />",
+    "inputs": "label*, showTrigger, items, disabled, open",
+    "outputs": "openChange, activated"
+  },
+  {
+    "entry": "meter-group",
+    "name": "Meter Group",
+    "symbol": "NeuMeterGroupComponent",
+    "example": "<neu-meter-group  />",
+    "inputs": "label, items, max",
+    "outputs": ""
+  },
+  {
+    "entry": "modal",
+    "name": "Modal",
+    "symbol": "NeuModalComponent",
+    "example": "<neu-modal title=\"Native dialog\" [open]=\"true\" />",
+    "inputs": "open, title*, dismissible, closeLabel",
+    "outputs": "openChange, closed, opened, dismissed"
+  },
+  {
+    "entry": "nav",
+    "name": "Nav",
+    "symbol": "NeuNavComponent",
+    "example": "<neu-nav value=\"one\" />",
+    "inputs": "label, items, value, disabled",
+    "outputs": "valueChange, navigate"
+  },
+  {
+    "entry": "notification-center",
+    "name": "Notification Center",
+    "symbol": "NeuNotificationCenterComponent",
+    "example": "<neu-notification-center  />",
+    "inputs": "label, items, readIds, disabled, markAllLabel, unreadLabel, emptyLabel",
+    "outputs": "readIdsChange, activated"
+  },
+  {
+    "entry": "number-input",
+    "name": "Number Input",
+    "symbol": "NeuNumberInputComponent",
+    "example": "<neu-number-input label=\"Quantity\" [value]=\"2\" [min]=\"0\" [max]=\"10\" />",
+    "inputs": "label*, value, min, max, step, disabled, readonly, decreaseLabel, increaseLabel",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "panel",
+    "name": "Panel",
+    "symbol": "NeuPanelComponent",
+    "example": "<neu-panel title=\"Panel details\" />",
+    "inputs": "title*, collapsed, collapsible",
+    "outputs": "collapsedChange"
+  },
+  {
+    "entry": "password",
+    "name": "Password",
+    "symbol": "NeuPasswordComponent",
+    "example": "<neu-password label=\"Password\" value=\"Neural57\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, revealed, showLabel, hideLabel",
+    "outputs": "valueChange, touch, revealedChange"
+  },
+  {
+    "entry": "pick-list",
+    "name": "Pick List",
+    "symbol": "NeuPickListComponent",
+    "example": "<neu-pick-list label=\"Members\" />",
+    "inputs": "label*, options, value, disabled, readonly, selectedLabel, availableLabel, upLabel, downLabel, removeLabel",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "popover",
+    "name": "Popover",
+    "symbol": "NeuPopoverComponent",
+    "example": "<neu-popover label=\"Information\" title=\"Help\" />",
+    "inputs": "label*, title, disabled, open",
+    "outputs": "openChange"
+  },
+  {
+    "entry": "progress-bar",
+    "name": "Progress Bar",
+    "symbol": "NeuProgressBarComponent",
+    "example": "<neu-progress-bar label=\"Download\" [value]=\"65\" />",
+    "inputs": "label*, value, max",
+    "outputs": ""
+  },
+  {
+    "entry": "radio",
+    "name": "Radio",
+    "symbol": "NeuRadioGroupComponent",
+    "example": "<neu-radio label=\"Plan\" />",
+    "inputs": "label*, options, value, disabled, readonly, invalid, touched",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "rating",
+    "name": "Rating",
+    "symbol": "NeuRatingComponent",
+    "example": "<neu-rating label=\"Rating\" [value]=\"3\" />",
+    "inputs": "label*, value, max, disabled, readonly, clearable, clearLabel",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "select",
+    "name": "Select",
+    "symbol": "NeuSelectComponent",
+    "example": "<neu-select label=\"Person\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, options, placeholder",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "sidebar",
+    "name": "Sidebar",
+    "symbol": "NeuSidebarComponent",
+    "example": "<neu-sidebar title=\"Navigation\" [open]=\"true\" />",
+    "inputs": "open, title*, items, value, disabled",
+    "outputs": "openChange, valueChange, navigate, opened, dismissed"
+  },
+  {
+    "entry": "skeleton",
+    "name": "Skeleton",
+    "symbol": "NeuSkeletonComponent",
+    "example": "<neu-skeleton  />",
+    "inputs": "label, lines, height",
+    "outputs": ""
+  },
+  {
+    "entry": "slider",
+    "name": "Slider",
+    "symbol": "NeuSliderComponent",
+    "example": "<neu-slider label=\"Volume\" [value]=\"40\" />",
+    "inputs": "label*, value, min, max, step, disabled, readonly, increaseLabel, decreaseLabel",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "speed-dial",
+    "name": "Speed Dial",
+    "symbol": "NeuSpeedDialComponent",
+    "example": "<neu-speed-dial label=\"Create\" />",
+    "inputs": "label, actions, open, disabled",
+    "outputs": "openChange, activated"
+  },
+  {
+    "entry": "stats-card",
+    "name": "Stats Card",
+    "symbol": "NeuStatsCardComponent",
+    "example": "<neu-stats-card label=\"Revenue\" value=\"$1,250\" change=\"+12% this month\" />",
+    "inputs": "label*, value*, change, description",
+    "outputs": ""
+  },
+  {
+    "entry": "stepper",
+    "name": "Stepper",
+    "symbol": "NeuStepperComponent",
+    "example": "<neu-stepper  />",
+    "inputs": "steps, activeStep, linear, completed, disabled, previousLabel, nextLabel, finishLabel",
+    "outputs": "activeStepChange, finished"
+  },
+  {
+    "entry": "tabs",
+    "name": "Tabs",
+    "symbol": "NeuTabsComponent",
+    "example": "<neu-tabs [tabs]=\"tabs\" [(value)]=\"selectedTab\">\n  <neu-tab-panel id=\"details\"><text>Details</text></neu-tab-panel>\n</neu-tabs>",
+    "inputs": "label, tabs, value, disabled",
+    "outputs": "valueChange"
+  },
+  {
+    "entry": "timeline",
+    "name": "Timeline",
+    "symbol": "NeuTimelineComponent",
+    "example": "<neu-timeline  />",
+    "inputs": "label, items",
+    "outputs": ""
+  },
+  {
+    "entry": "toast",
+    "name": "Toast",
+    "symbol": "NeuToastComponent",
+    "example": "<neu-toast message=\"Changes saved\" [open]=\"true\" [duration]=\"0\" />",
+    "inputs": "open, message*, duration, closeLabel, actionLabel",
+    "outputs": "openChange, action, dismissed"
+  },
+  {
+    "entry": "toggle-button-group",
+    "name": "Toggle Button Group",
+    "symbol": "NeuToggleButtonGroupComponent",
+    "example": "<neu-toggle-button-group label=\"Filters\" [multiple]=\"true\" />",
+    "inputs": "label*, options, value, multiple, disabled",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "toolbar",
+    "name": "Toolbar",
+    "symbol": "NeuToolbarComponent",
+    "example": "<neu-toolbar  />",
+    "inputs": "label, actions, disabled",
+    "outputs": "activated"
+  },
+  {
+    "entry": "tree",
+    "name": "Tree",
+    "symbol": "NeuTreeComponent",
+    "example": "<neu-tree  />",
+    "inputs": "label, nodes, expanded, value, disabled, readonly, leafOnly, expandLabel, emptyLabel",
+    "outputs": "expandedChange, valueChange, selected, touch"
+  },
+  {
+    "entry": "tree-select",
+    "name": "Tree Select",
+    "symbol": "NeuTreeSelectComponent",
+    "example": "<neu-tree-select label=\"Choose a team member\" />",
+    "inputs": "value, label*, disabled, readonly, invalid, touched, hint, error, nodes, leafOnly, placeholder",
+    "outputs": "valueChange, touch"
+  },
+  {
+    "entry": "uploader",
+    "name": "Uploader",
+    "symbol": "NeuUploaderComponent",
+    "example": "<neu-uploader label=\"Documents\" chooseLabel=\"Choose files\" />",
+    "inputs": "label, files, disabled, types, multiple, maxFiles, maxBytes, chooseLabel, uploadLabel, removeLabel, upload",
+    "outputs": "filesChange, selected, completed, rejected"
+  },
+  {
+    "entry": "virtual-list",
+    "name": "Virtual List",
+    "symbol": "NeuVirtualListComponent",
+    "example": "<neu-virtual-list [height]=\"360\" />",
+    "inputs": "items, disabled, estimatedItemHeight, height, emptyLabel",
+    "outputs": "selected, endReached"
+  }
+]

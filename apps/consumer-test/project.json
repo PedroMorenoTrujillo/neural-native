@@ -1,0 +1,81 @@
+{
+  "name": "@neural-native/consumer-test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/consumer-test",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production"
+      ],
+      "outputs": [
+        "{projectRoot}/.angular-native"
+      ],
+      "options": {
+        "cwd": "apps/consumer-test",
+        "command": "node metro.config.js && ngc -p tsconfig.typecheck.json --noEmit"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production"
+      ],
+      "options": {
+        "cwd": "apps/consumer-test",
+        "command": "vitest run"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "options": {
+        "cwd": "apps/consumer-test",
+        "command": "expo start --port 8082"
+      },
+      "syncGenerators": [
+        "@ng-native/nx:sync-native-modules"
+      ]
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "options": {
+        "cwd": "apps/consumer-test",
+        "command": "expo start --port 8082"
+      }
+    },
+    "run-ios": {
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "options": {
+        "cwd": "apps/consumer-test",
+        "command": "expo run:ios --port 8082"
+      }
+    },
+    "run-android": {
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "options": {
+        "cwd": "apps/consumer-test",
+        "command": "expo run:android --port 8082"
+      }
+    },
+    "export": {
+      "syncGenerators": [
+        "@ng-native/nx:sync-native-modules"
+      ]
+    },
+    "prebuild": {
+      "syncGenerators": [
+        "@ng-native/nx:sync-native-modules"
+      ]
+    }
+  }
+}

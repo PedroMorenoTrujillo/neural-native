@@ -1,0 +1,65 @@
+{
+  "name": "@neural-native/showcase",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/showcase",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production"
+      ],
+      "outputs": [
+        "{projectRoot}/.angular-native"
+      ],
+      "options": {
+        "cwd": "apps/showcase",
+        "command": "node metro.config.js && ngc -p tsconfig.typecheck.json --noEmit"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production"
+      ],
+      "options": {
+        "cwd": "apps/showcase",
+        "command": "vitest run"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "options": {
+        "cwd": "apps/showcase",
+        "command": "expo start"
+      },
+      "syncGenerators": [
+        "@ng-native/nx:sync-native-modules"
+      ]
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "options": {
+        "cwd": "apps/showcase",
+        "command": "expo start"
+      }
+    },
+    "export": {
+      "syncGenerators": [
+        "@ng-native/nx:sync-native-modules"
+      ]
+    },
+    "prebuild": {
+      "syncGenerators": [
+        "@ng-native/nx:sync-native-modules"
+      ]
+    }
+  }
+}

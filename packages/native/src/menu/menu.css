@@ -1,0 +1,4 @@
+.menu-trigger { min-height: 48px; align-self: flex-start; max-width: 100%; flex-direction: row; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 12px; border-width: 1px; border-color: var(--neu-border); background-color: var(--neu-surface); }
+.menu-item { min-height: 48px; gap: 4px; padding: 14px 12px;  }
+
+.menu-item .label { font-size: var(--neu-row-size, 15px); line-height: var(--neu-row-line, 21px); font-weight: 500; } .menu-item .muted { font-size: var(--neu-caption-size, 13px); line-height: var(--neu-caption-line, 18px); }

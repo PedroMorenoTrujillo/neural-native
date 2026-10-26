@@ -1,0 +1,53 @@
+{
+  "name": "@neural-native/source",
+  "version": "0.1.0-beta.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "nx build native",
+    "test": "nx test native",
+    "typecheck": "nx typecheck native",
+    "lint": "nx lint native",
+    "showcase": "nx start @neural-native/showcase",
+    "verify:consumer": "node tooling/verify-consumer.mjs",
+    "pack": "node tooling/pack-native.mjs",
+    "test:showcase": "nx test @neural-native/showcase",
+    "typecheck:showcase": "nx typecheck @neural-native/showcase"
+  },
+  "private": true,
+  "devDependencies": {
+    "@angular/forms": "22.2.2",
+    "@babel/core": "7.29.7",
+    "@babel/runtime": "7.29.10",
+    "@expo/metro": "56.0.2",
+    "@ng-native/icons": "0.18.2",
+    "@ng-native/nx": "0.18.2",
+    "@ng-native/platform": "0.18.2",
+    "@nx/expo": "23.3.0",
+    "@nx/js": "23.3.0",
+    "@swc/helpers": "~0.5.18",
+    "@types/node": "^22.0.0",
+    "eslint": "10.12.0",
+    "expo": "57.0.27",
+    "nx": "23.3.0",
+    "prettier": "~3.6.2",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-svg": "15.15.4",
+    "tslib": "^2.3.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.1",
+    "@ng-icons/core": "36.1.0",
+    "rxjs": "7.8.2"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "overrides": {
+    "nx": {
+      "undici": "7.29.1"
+    }
+  },
+  "releaseStage": "beta"
+}

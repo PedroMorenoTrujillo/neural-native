@@ -1,0 +1,55 @@
+.drawer-root {
+  flex-direction: row;
+}
+.drawer-backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000000;
+}
+.drawer-panel {
+  width: 86%;
+  max-width: 360px;
+  background-color: var(--neu-surface, #ffffff);
+}
+.drawer-panel.drawer-full {
+  width: 100%;
+  max-width: 100%;
+}
+.drawer-header {
+  padding: 16px;
+  border-bottom-width: 1px;
+  border-color: var(--neu-border, #c6cede);
+}
+.drawer-close {
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+}
+.drawer-items {
+  padding: 8px;
+  padding-right: 16px;
+  gap: 4px;
+}
+.drawer-item {
+  min-height: 52px;
+  padding: 14px;
+  gap: 6px;
+  border-left-width: 3px;
+  border-color: transparent;
+  border-radius: 8px;
+}
+.drawer-selected {
+  border-color: var(--neu-accent, #3155d9);
+  background-color: var(--neu-tonal, #e9edfc);
+}
+.drawer-selected-label {
+  color: var(--neu-accent-ink, #3155d9);
+  font-weight: 600;
+}
+.drawer-footer {
+  padding: 16px;
+}

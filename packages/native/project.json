@@ -1,0 +1,46 @@
+{
+  "name": "native",
+  "projectType": "library",
+  "sourceRoot": "packages/native/src",
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/native",
+        "command": "ngc -p tsconfig.typecheck.json"
+      },
+      "cache": true
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/native",
+        "command": "node ../../tooling/run-native-tests.mjs"
+      },
+      "cache": true,
+      "outputs": ["{workspaceRoot}/coverage/native", "{workspaceRoot}/reports/test-temporaries.json"]
+    },
+    "test-tooling": {
+      "executor": "nx:run-commands",
+      "options": { "command": "node --test tooling/temporary-workspace.test.mjs" },
+      "cache": false
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tooling/build-native.mjs"
+      },
+      "outputs": [
+        "{projectRoot}/dist"
+      ],
+      "cache": true
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "eslint packages/native/src apps/showcase/src apps/consumer-test/src && node tooling/check-source.mjs"
+      },
+      "cache": true
+    }
+  }
+}

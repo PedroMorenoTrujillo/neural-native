@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "showcase",
+    "slug": "showcase",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.neuralui.showcase"
+    },
+    "android": {
+      "package": "com.neuralui.showcase",
+      "predictiveBackGestureEnabled": false
+    },
+    "scheme": "showcase",
+    "extra": {
+      "router": {
+        "root": "src/app"
+      }
+    },
+    "plugins": [
+      "@ng-native/metro"
+    ]
+  }
+}

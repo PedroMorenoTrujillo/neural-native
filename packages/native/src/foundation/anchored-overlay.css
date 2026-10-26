@@ -1,0 +1,26 @@
+.overlay-root {
+  flex: 1;
+}
+.overlay-dismiss {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.overlay-popup {
+  position: absolute;
+  border-width: 1px;
+  border-color: var(--neu-surface-border, #e1e6ed);
+  border-radius: var(--neu-overlay-radius, 16px);
+  background-color: var(--neu-surface, #ffffff);
+  overflow: hidden;
+}
+.overlay-scroll {
+  flex: 1;
+  min-height: 0;
+}
+.overlay-content {
+  padding: 6px;
+  padding-right: 6px;
+}

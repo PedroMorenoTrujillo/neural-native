@@ -1,0 +1,7 @@
+.tabs-header { flex-direction: row; min-width: 100%; border-bottom-width: 1px; border-color: var(--neu-divider, #e7ebf0); }
+.tab-action { flex-grow: 1; min-width: 80px; min-height: 48px; padding: 0 16px; justify-content: center; align-items: center; }
+.tab-label-wrap { position: relative; min-height: 48px; padding: 12px 4px; justify-content: center; align-items: center; }
+.tab-label, .tab-active-label { font-size: var(--neu-label-size, 14px); line-height: var(--neu-label-line, 20px); font-weight: 500; flex-shrink: 1; }
+.tab-label { color: var(--neu-muted, #596477); }
+.tab-active-label { color: var(--neu-accent-ink, #3155d9); }
+.tab-indicator { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; border-radius: 1px; background-color: var(--neu-accent, #006ee6); }

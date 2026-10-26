@@ -1,0 +1,12 @@
+.confirmation-message {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--neu-muted, #596477);
+}
+.confirmation-actions {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 4px;
+}

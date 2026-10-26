@@ -1,0 +1,8 @@
+.panel-heading { min-width: 0; }
+.panel {
+  gap: 0;
+}
+.panel-body {
+  padding-top: 12px;
+  gap: 12px;
+}

@@ -1,0 +1,31 @@
+.filter-bar {
+  gap: 8px;
+}
+.filter-search {
+  gap: 10px;
+}
+.filter-search-focused {
+  border-color: var(--neu-accent, #3155d9);
+  border-width: 2px;
+  padding: 11px;
+}
+.filter-search-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 24px;
+  padding: 0;
+  color: var(--neu-text, #172033);
+  font-size: 16px;
+}
+.filter-heading {
+  justify-content: space-between;
+  gap: 12px;
+}
+.filter-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.filter-options {
+  gap: 8px;
+}
