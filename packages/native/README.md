@@ -4,7 +4,14 @@
 
 Neural Native brings the Neural visual language to [Angular Native](https://ng-native.com): 64 mobile component entries, Angular signals, typed APIs, shared themes and modular imports.
 
-**First public beta: `0.1.0-beta.1`.** APIs and framework compatibility may change before 1.0. Pin the version in your application lockfile and check compatibility before updating Angular Native.
+**Public beta: `0.1.0-beta.2`.** APIs and framework compatibility may change before 1.0. Pin the version in your application lockfile and check compatibility before updating Angular Native.
+
+## Documentation
+
+- [Neural Native documentation and interactive examples](https://native.neuralui.org).
+- [Angular Native official documentation](https://ng-native.com).
+- [Angular Native getting started guide](https://ng-native.com/guide/getting-started).
+- [Neural Native on npm](https://www.npmjs.com/package/@neural-ui/native).
 
 ## Install
 
