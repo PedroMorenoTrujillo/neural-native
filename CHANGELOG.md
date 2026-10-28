@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0-beta.3 (unreleased)
+## 0.1.0-beta.3 — 2026-10-28
 
 - Align Angular Native dependencies and exact peer requirements with 0.19.1.
 - Keep the showcase and consumer test applications on the same Neural Native workspace version so clean installations resolve the library correctly.
