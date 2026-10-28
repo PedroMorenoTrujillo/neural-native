@@ -2,7 +2,7 @@
 // structuredClone. Metro runs it before this file only when something imports it, and nothing
 // else does in a release build, which would then get React Native's fetch, with no body.
 import 'expo';
-import { AppRegistry, Image, Platform, processColor } from 'react-native';
+import { AppRegistry, Image, Platform, processColor, type RootTag } from 'react-native';
 import { mount } from '@ng-native/platform';
 import {
   currentConditions,
@@ -19,7 +19,7 @@ registerPlatformComponents(Platform.OS);
 
 AppRegistry.registerRunnable(
   'main',
-  ({ rootTag }: { rootTag: number | string }) => {
+  ({ rootTag }: { rootTag: RootTag }) => {
     const app = mount(Number(rootTag), App, getFabricUIManager(), {
       // Colours, as the integers the platform wants.
       processColor,

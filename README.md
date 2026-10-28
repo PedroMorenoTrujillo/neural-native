@@ -4,7 +4,7 @@
 
 Neural Native brings the Neural visual language to [Angular Native](https://ng-native.com): 64 mobile component entries, Angular signals, typed APIs, shared themes and modular imports.
 
-**Public beta: `0.1.0-beta.2`.** APIs and framework compatibility may change before 1.0. Pin the version in your application lockfile and check compatibility before updating Angular Native.
+**Next beta: `0.1.0-beta.3` (not yet published).** APIs and framework compatibility may change before 1.0. Pin the version in your application lockfile and check compatibility before updating Angular Native.
 
 ## Documentation
 
@@ -18,18 +18,18 @@ Neural Native brings the Neural visual language to [Angular Native](https://ng-n
 Start with the compatible Angular Native template:
 
 ```sh
-npx create-expo-app@latest my-neural-app --template @ng-native/template@0.18.2
+npx create-expo-app@latest my-neural-app --template @ng-native/template@0.19.1
 cd my-neural-app
 npm install @neural-ui/native@beta
 ```
 
-In an existing Angular Native 0.18.2 application, run only the last command. The beta is published under the npm `beta` tag; `@beta` is intentional.
+This branch prepares compatibility with Angular Native 0.19.1. Wait for Neural Native 0.1.0-beta.3 to be published before using the installation commands above: the current npm beta.2 requires Angular Native 0.18.2. Releases use the npm `beta` tag; `@beta` is intentional.
 
 ### Compatibility
 
 | Dependency | This beta |
 | --- | --- |
-| Angular Native packages | 0.18.2 |
+| Angular Native packages | 0.19.1 |
 | Angular | 22.2.2 tested; peers >=22.2.0 <23 |
 | Expo / React Native | 57.0.27 / 0.86.3 tested application baseline |
 | react-native-svg | 15.15.4 |
@@ -177,7 +177,7 @@ Neural Native is maintained by Pedro Moreno Trujillo and shares its visual ident
 
 ## Español
 
-Neural Native ofrece componentes Angular nativos para iOS y Android. Esta primera Beta se instala con `npm install @neural-ui/native@beta` sobre una aplicación Angular Native 0.18.2. Los controles utilizan signals, un tema compartido e imports modulares; tu aplicación conserva el estado y decide cómo guardar los datos.
+Neural Native ofrece componentes Angular nativos para iOS y Android. Esta rama prepara la beta.3 para Angular Native 0.19.1; todavía no está publicada. La beta.2 disponible en npm utiliza Angular Native 0.18.2. Los controles utilizan signals, un tema compartido e imports modulares; tu aplicación conserva el estado y decide cómo guardar los datos.
 
 ## License
 

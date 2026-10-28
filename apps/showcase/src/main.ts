@@ -4,7 +4,7 @@
 import 'expo';
 import { requireOptionalNativeModule } from 'expo';
 import { ErrorHandler } from '@angular/core';
-import { AppRegistry, Image, Platform, processColor } from 'react-native';
+import { AppRegistry, Image, Platform, processColor, type RootTag } from 'react-native';
 import { mount } from '@ng-native/platform';
 import {
   currentConditions,
@@ -30,7 +30,7 @@ AppRegistry.registerRunnable(
     rootTag,
     initialProps,
   }: {
-    rootTag: number | string;
+    rootTag: RootTag;
     initialProps?: { exp?: { initialUri?: string } };
   }) => {
     const validation = __DEV__
