@@ -6,12 +6,12 @@
   "dependencies": {
     "@angular/common": "22.2.2",
     "@angular/core": "22.2.2",
-    "@neural-ui/native": "0.1.0-beta.3",
-    "@ng-native/components": "0.19.1",
-    "@ng-native/device": "0.19.1",
-    "@ng-native/fabric": "0.19.1",
-    "@ng-native/metro": "0.19.1",
-    "@ng-native/platform": "0.19.1",
+    "@neural-ui/native": "0.1.0-beta.4",
+    "@ng-native/components": "0.19.2",
+    "@ng-native/device": "0.19.2",
+    "@ng-native/fabric": "0.19.2",
+    "@ng-native/metro": "0.19.2",
+    "@ng-native/platform": "0.19.2",
     "expo": "57.0.27",
     "expo-document-picker": "57.0.3",
     "expo-status-bar": "57.0.1",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@angular/compiler-cli": "22.2.2",
     "@babel/core": "7.29.7",
-    "@ng-native/testing": "0.19.1",
+    "@ng-native/testing": "0.19.2",
     "@types/react": "19.2.18",
     "typescript": "6.0.3",
     "vitest": "5.0.3"

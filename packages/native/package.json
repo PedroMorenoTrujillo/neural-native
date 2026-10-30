@@ -1,6 +1,6 @@
 {
   "name": "@neural-ui/native",
-  "version": "0.1.0-beta.3",
+  "version": "0.1.0-beta.4",
   "private": false,
   "type": "module",
   "description": "Signals-first native Angular components for iOS and Android.",
@@ -287,10 +287,10 @@
   "peerDependencies": {
     "@angular/common": ">=22.2.0 <23",
     "@angular/core": ">=22.2.0 <23",
-    "@ng-native/components": "0.19.1",
-    "@ng-native/fabric": "0.19.1",
-    "@ng-native/device": "0.19.1",
-    "@ng-native/icons": "0.19.1",
+    "@ng-native/components": "0.19.2",
+    "@ng-native/fabric": "0.19.2",
+    "@ng-native/device": "0.19.2",
+    "@ng-native/icons": "0.19.2",
     "react-native-svg": "15.15.4"
   },
   "dependencies": {
@@ -299,7 +299,8 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "22.2.2",
-    "@ng-native/testing": "0.19.1",
+    "@babel/core": "7.29.7",
+    "@ng-native/testing": "0.19.2",
     "@vitest/coverage-v8": "5.0.3",
     "vitest": "5.0.3"
   },

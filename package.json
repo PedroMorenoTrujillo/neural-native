@@ -1,6 +1,6 @@
 {
   "name": "@neural-native/source",
-  "version": "0.1.0-beta.3",
+  "version": "0.1.0-beta.4",
   "license": "MIT",
   "scripts": {
     "build": "nx build native",
@@ -19,9 +19,9 @@
     "@babel/core": "7.29.7",
     "@babel/runtime": "7.29.10",
     "@expo/metro": "56.0.2",
-    "@ng-native/icons": "0.19.1",
-    "@ng-native/nx": "0.19.1",
-    "@ng-native/platform": "0.19.1",
+    "@ng-native/icons": "0.19.2",
+    "@ng-native/nx": "0.19.2",
+    "@ng-native/platform": "0.19.2",
     "@nx/expo": "23.3.0",
     "@nx/js": "23.3.0",
     "@swc/helpers": "~0.5.18",
