@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0-beta.4 — Unreleased
+## 0.1.0-beta.4 — 2026-10-30
 
 - Align framework dependencies and exact peer requirements with Angular Native 0.19.2.
 - Declare Babel 7 in the library's development dependencies, as recommended by Angular Native, so pnpm 10 does not satisfy React Native's peer with Angular compiler's Babel 8 and install duplicate Expo/React Native trees.
