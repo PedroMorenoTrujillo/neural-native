@@ -1,6 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { releaseIdentity } from './release-native.mjs';
+import { assertReleaseActor, releaseIdentity } from './release-native.mjs';
+
+test('only the maintainer can initiate or retry publication', () => {
+  assert.doesNotThrow(() => assertReleaseActor('PedroMorenoTrujillo', 'PedroMorenoTrujillo'));
+  for (const [actor, retry] of [
+    ['contributor', 'contributor'], ['PedroMorenoTrujillo', 'contributor'],
+    ['contributor', 'PedroMorenoTrujillo'], ['github-actions[bot]', 'PedroMorenoTrujillo'],
+    [undefined, undefined], ['PedroMorenoTrujillo', undefined],
+  ]) assert.throws(() => assertReleaseActor(actor, retry));
+});
 
 test('native release tag exactly selects its declared stable or prerelease version', () => {
   assert.deepEqual(releaseIdentity('v0.1.0-beta.5', '0.1.0-beta.5'), { tag: 'v0.1.0-beta.5', version: '0.1.0-beta.5', channel: 'beta' });

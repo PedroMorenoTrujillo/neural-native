@@ -9,6 +9,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   verify-release:
+    if: github.actor == 'PedroMorenoTrujillo' && github.triggering_actor == 'PedroMorenoTrujillo'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
@@ -42,6 +43,7 @@ jobs:
           if-no-files-found: error
           retention-days: 7
   publish:
+    if: github.actor == 'PedroMorenoTrujillo' && github.triggering_actor == 'PedroMorenoTrujillo'
     needs: verify-release
     runs-on: ubuntu-latest
     timeout-minutes: 10

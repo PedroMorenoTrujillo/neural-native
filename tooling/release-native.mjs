@@ -4,6 +4,12 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
+export function assertReleaseActor(actor, triggeringActor) {
+  if (actor !== 'PedroMorenoTrujillo' || triggeringActor !== 'PedroMorenoTrujillo') {
+    throw new Error('Only PedroMorenoTrujillo may publish or retry a Native release');
+  }
+}
+
 export function releaseIdentity(tag, version) {
   if (!/^v\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(tag ?? '') || tag !== `v${version}`) {
     throw new Error('Release tag must exactly match the package version');
@@ -17,6 +23,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const sha = file => createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const read = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 function identity() {
+  if (process.env.GITHUB_ACTIONS === 'true') assertReleaseActor(process.env.GITHUB_ACTOR, process.env.GITHUB_TRIGGERING_ACTOR);
   if (process.env.GITHUB_REF_TYPE !== 'tag') throw new Error('Publishing requires a tag push');
   const pkg = read('packages/native/package.json');
   const release = releaseIdentity(process.env.GITHUB_REF_NAME, pkg.version);
