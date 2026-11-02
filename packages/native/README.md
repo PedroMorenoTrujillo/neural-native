@@ -4,7 +4,7 @@
 
 Neural Native brings the Neural visual language to [Angular Native](https://ng-native.com): 64 mobile component entries, Angular signals, typed APIs, shared themes and modular imports.
 
-**Public beta: `0.1.0-beta.4`.** APIs and framework compatibility may change before 1.0. Pin the version in your application lockfile and check compatibility before updating Angular Native.
+**Public beta: `0.1.0-beta.5`.** APIs and framework compatibility may change before 1.0. Pin the version in your application lockfile and check compatibility before updating Angular Native.
 
 ## Documentation
 
@@ -144,7 +144,7 @@ Use projected content with controls such as Card, Modal and Bottom Sheet. Collec
 
 ## Accessibility and localization
 
-Optional haptic feedback is available in unreleased sources and packed candidates. Applications explicitly enable it, can silence individual controls and can change the preference at runtime. See the [haptics guide](https://github.com/PedroMorenoTrujillo/neural-native/blob/main/docs/haptics.md); published beta.4 does not yet include this feature.
+Optional haptic feedback is available from beta.5. Applications explicitly enable it with `provideNeuHaptics()`, can silence individual controls with `[haptic]="false"` and can change the preference at runtime. Install `expo-haptics` and rebuild the native app first. See the [haptics guide](https://github.com/PedroMorenoTrujillo/neural-native/blob/main/docs/haptics.md).
 
 Provide visible labels, useful validation messages and accessible names for icon actions. Localize the labels exposed by the component API; date controls also accept `locale`. Translate display labels while keeping option IDs and saved values stable.
 
@@ -180,7 +180,7 @@ Neural Native is maintained by Pedro Moreno Trujillo and shares its visual ident
 
 ## Español
 
-Neural Native ofrece componentes Angular nativos para iOS y Android. Esta beta.4 se instala con `npm install @neural-ui/native@beta` sobre una aplicación Angular Native 0.19.2. Si tu aplicación utiliza Angular Native 0.18.2, conserva Neural Native 0.1.0-beta.2 hasta actualizar el framework. Los controles utilizan signals, un tema compartido e imports modulares; tu aplicación conserva el estado y decide cómo guardar los datos.
+Neural Native ofrece componentes Angular nativos para iOS y Android. Esta beta.5 se instala con `npm install @neural-ui/native@beta` sobre una aplicación Angular Native 0.19.2. Si tu aplicación utiliza Angular Native 0.18.2, conserva Neural Native 0.1.0-beta.2 hasta actualizar el framework. Los controles utilizan signals, un tema compartido e imports modulares; tu aplicación conserva el estado y decide cómo guardar los datos. Desde beta.5 puedes activar la respuesta háptica opcional, silenciar controles concretos y cambiar esa preferencia durante la ejecución.
 
 ## License
 

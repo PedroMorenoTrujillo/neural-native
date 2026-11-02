@@ -1,6 +1,6 @@
 # Optional haptic feedback / Respuesta háptica opcional
 
-This feature is currently in unreleased sources and packed test candidates. The published `0.1.0-beta.4` does not include it yet.
+Available from `@neural-ui/native@0.1.0-beta.5`. Earlier versions do not include this optional API.
 
 Haptics are off unless the application installs and configures the adapter. Importing ordinary Neural components does not import the haptics adapter or require `expo-haptics`. The adapter uses Expo's optional native module boundary, also used by Angular Native's Haptics service.
 

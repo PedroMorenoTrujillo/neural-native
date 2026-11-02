@@ -1,10 +1,12 @@
 # Changelog
 
-## Unreleased
+## 0.1.0-beta.5 — 2026-11-02
 
 - Add opt-in, application-configurable haptic feedback through Expo's native module. Keep the adapter and native module optional; support runtime and per-control opt-out, selection-change guards and bounded repeated feedback.
 
 - Size Gallery cells and mosaic columns from the measured container width, including after resizing and layout changes. Intrinsic image dimensions no longer make one column oversized and squeeze its neighbour on iOS and Android.
+
+- Verify the packed candidate in standalone Android and iOS simulator apps: 64 UI components plus a haptics scenario, with actual native actions, real document selection and local upload error/retry checks. These tests do not certify physical vibration or server uploads.
 
 ## 0.1.0-beta.4 — 2026-10-30
 
