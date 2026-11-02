@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Size Gallery cells and mosaic columns from the measured container width, including after resizing and layout changes. Intrinsic image dimensions no longer make one column oversized and squeeze its neighbour on iOS and Android.
+
 ## 0.1.0-beta.4 — 2026-10-30
 
 - Align framework dependencies and exact peer requirements with Angular Native 0.19.2.

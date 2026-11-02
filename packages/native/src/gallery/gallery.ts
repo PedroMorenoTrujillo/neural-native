@@ -30,7 +30,7 @@ export interface NeuGalleryViewerLabels {
 type GalleryTile = { item: NeuImageItem; index: number };
 type GalleryScene = {
   groups: (GalleryTile | null)[][]; layout: NeuGalleryLayout;
-  gap: number; radius: number; ratio: number; captions: boolean;
+  gap: number; radius: number; ratio: number; captions: boolean; columnWidth: number;
 };
 
 @Component({
@@ -38,17 +38,22 @@ type GalleryScene = {
   imports: [View, Text, Image, Pressable, NeuImageViewerComponent, AnimatedStyle, NgTemplateOutlet],
   template: `<view class="gallery-stage" [accessibilityLabel]="label()" (layout)="measure($event)">
     @for (layer of layers(); track layer.outgoing) {
-    <view class="gallery" [class.gallery-outgoing]="layer.outgoing" [class.gallery-mosaic]="layer.scene.layout === 'mosaic'"
+    <view class="gallery" [class.gallery-outgoing]="layer.outgoing"
+      [style.flexDirection]="layer.scene.layout === 'mosaic' ? 'row' : 'column'"
       [style.gap]="layer.scene.gap" [animatedStyle]="layer.outgoing ? motion.settledStyle : motion.incomingStyle"
       [pointerEvents]="layer.outgoing ? 'none' : 'auto'" [accessibilityElementsHidden]="layer.outgoing"
       [importantForAccessibility]="layer.outgoing ? 'no-hide-descendants' : 'auto'">
       @for (group of layer.scene.groups; track $index) {
-        <view class="gallery-group" [class.gallery-column]="layer.scene.layout === 'mosaic'" [style.gap]="layer.scene.gap">
+        <view class="gallery-group" [style.gap]="layer.scene.gap"
+          [style.flexDirection]="layer.scene.layout === 'mosaic' ? 'column' : 'row'"
+          [style.width]="layer.scene.layout === 'mosaic' ? layer.scene.columnWidth : '100%'"
+          [style.flexGrow]="0" [style.flexShrink]="0" [style.flexBasis]="'auto'">
         @for (tile of group; track tile ? tile.item.id : $index) {
         @if (tile) {
         <pressable
           class="gallery-item"
-          [class.mosaic-item]="layer.scene.layout === 'mosaic'"
+          [style.width]="layer.scene.layout === 'mosaic' ? '100%' : layer.scene.columnWidth"
+          [style.flexGrow]="0" [style.flexShrink]="0" [style.flexBasis]="'auto'"
           accessibilityRole="button"
           [accessibilityLabel]="tile.item.label"
           (press)="show(tile.index)"
@@ -68,7 +73,7 @@ type GalleryScene = {
             } @else { <text class="muted" [numberOfLines]="2">{{ tile.item.label }}</text> }
           }</pressable
         >
-        } @else { <view class="gallery-placeholder" /> }
+        } @else { <view class="gallery-placeholder" [style.width]="layer.scene.columnWidth" /> }
         }
         </view>
       } @empty {
@@ -124,9 +129,12 @@ export class NeuGalleryComponent {
   protected readonly scene = computed<GalleryScene>(() => ({
     groups: this.groups(), layout: this.layout(), gap: this.resolvedGap(),
     radius: this.resolvedRadius(), ratio: this.bounded(this.aspectRatio(), 1, 0.25, 4), captions: this.showCaptions(),
+    // Native image measurement can otherwise make a percentage-width image's
+    // intrinsic width dominate its flex row and squeeze the adjacent tile.
+    columnWidth: Math.max(0, (this.measuredWidth() - this.resolvedGap() * (this.resolvedColumns() - 1)) / this.resolvedColumns()),
   }));
   protected readonly motion = neuCrossfade(this.scene, signal(true), (a, b) =>
-    a.groups === b.groups && a.layout === b.layout && a.gap === b.gap && a.radius === b.radius && a.ratio === b.ratio && a.captions === b.captions);
+    a.groups === b.groups && a.layout === b.layout && a.gap === b.gap && a.radius === b.radius && a.ratio === b.ratio && a.captions === b.captions && a.columnWidth === b.columnWidth);
   protected readonly layers = computed(() => {
     const previous = this.motion.outgoing();
     return [

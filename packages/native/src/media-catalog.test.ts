@@ -75,6 +75,22 @@ test('gallery reflows grid and mosaic columns while opening the original item in
   expect(r.instance.index()).toBe(6);
 });
 
+test('gallery binds measured equal widths when reused tiles switch between mosaic and grid', async () => {
+  const r = await render(NeuGalleryComponent, { inputs: { items: images, layout: 'mosaic', gap: 12 } });
+  const first = screen.getByRole('button', { name: 'First photo', exact: true });
+  await fireEvent(first.parent!.parent!.parent!, 'layout', { layout: { width: 372, height: 600, x: 0, y: 0 } });
+  for (const layout of ['grid', 'mosaic', 'grid'] as const) {
+    await r.rerender({ inputs: { layout } });
+    const tile = screen.getByRole('button', { name: 'First photo', exact: true });
+    const mosaic = layout === 'mosaic';
+    expect(tile.props).toMatchObject({ width: mosaic ? '100%' : 180, flexGrow: 0, flexShrink: 0, flexBasis: 'auto' });
+    expect(tile.parent!.props).toMatchObject({ flexDirection: mosaic ? 'column' : 'row', width: mosaic ? 180 : '100%', flexGrow: 0, flexShrink: 0, flexBasis: 'auto' });
+    expect(tile.parent!.parent!.props.flexDirection).toBe(mosaic ? 'row' : 'column');
+  }
+  await fireEvent(screen.getByRole('button', { name: 'First photo', exact: true }).parent!.parent!.parent!, 'layout', { layout: { width: 612, height: 600, x: 0, y: 0 } });
+  expect(screen.getByRole('button', { name: 'First photo', exact: true }).props.width).toBe(300);
+});
+
 test('gallery normalizes invalid layout sizes and keeps an empty message without cells', async () => {
   const r = await render(NeuGalleryComponent, { inputs: { items: [], columns: Number.NaN, gap: -1, aspectRatio: 0, borderRadius: -3, layout: 'mosaic' } });
   expect(screen.getByText('No images')).toBeTruthy();
