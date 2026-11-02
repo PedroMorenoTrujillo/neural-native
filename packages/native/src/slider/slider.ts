@@ -19,6 +19,7 @@ import {
   type ResponderEvent,
 } from '@ng-native/fabric';
 import { finite, clamp, bounded } from '../foundation/mobile.js';
+import { NeuHaptics, type NeuHapticFeedback } from '../foundation/haptics.js';
 
 @Component({
   selector: 'neu-slider',
@@ -32,6 +33,7 @@ import { finite, clamp, bounded } from '../foundation/mobile.js';
           accessibilityRole="button"
           [accessibilityLabel]="decreaseLabel() + ' ' + label()"
           [disabled]="disabled() || readonly() || value() <= min()"
+          [haptic]="false"
           (press)="change(-1)"
           ><text class="label">−</text></pressable
         >
@@ -61,6 +63,7 @@ import { finite, clamp, bounded } from '../foundation/mobile.js';
           accessibilityRole="button"
           [accessibilityLabel]="increaseLabel() + ' ' + label()"
           [disabled]="disabled() || readonly() || value() >= max()"
+          [haptic]="false"
           (press)="change(1)"
           ><text class="label">+</text></pressable
         >
@@ -70,6 +73,8 @@ import { finite, clamp, bounded } from '../foundation/mobile.js';
   styleUrl: '../foundation/mobile.css',
 })
 export class NeuSliderComponent implements AfterViewInit, OnDestroy {
+  readonly haptic = input<NeuHapticFeedback | false>('selection');
+  private readonly haptics = inject(NeuHaptics);
   readonly label = input.required<string>();
   readonly value = model(0);
   readonly min = input(0);
@@ -136,6 +141,7 @@ export class NeuSliderComponent implements AfterViewInit, OnDestroy {
     const next = bounded(value, this.min(), this.max(), this.step());
     if (next === this.value()) return;
     this.value.set(next);
+    this.haptics.play(this.haptic());
     this.touch.emit();
   }
 }

@@ -10,6 +10,7 @@ import {
 import { Text, View } from '@ng-native/components';
 import { NeuNativePressable as Pressable } from '../foundation/native-pressable.js';
 import { NgIcon } from '@ng-native/icons';
+import { NeuHaptics, type NeuHapticFeedback } from '../foundation/haptics.js';
 import {
   NEU_CHECK_ICON,
   NEU_LIGHT_TOKENS,
@@ -27,6 +28,7 @@ import {
         [accessibilityLabel]="label()"
         [accessibilityState]="{ checked: checked(), disabled: unavailable() }"
         [disabled]="unavailable()"
+        [haptic]="false"
         [accessibilityHint]="invalid() && error() ? error() : undefined"
         [attr.aria-invalid]="invalid() ? 'true' : null"
         [class.neu-unavailable]="disabled()"
@@ -91,6 +93,8 @@ import {
   `,
 })
 export class NeuCheckboxComponent {
+  readonly haptic = input<NeuHapticFeedback | false>('selection');
+  private readonly haptics = inject(NeuHaptics);
   readonly label = input.required<string>();
   readonly labelPosition = input<'left' | 'right'>('right');
   readonly checked = model(false);
@@ -114,6 +118,7 @@ export class NeuCheckboxComponent {
   protected toggle(): void {
     if (!this.unavailable()) {
       this.checked.update((value) => !value);
+      this.haptics.play(this.haptic());
       this.touch.emit();
     }
   }

@@ -144,6 +144,8 @@ Use projected content with controls such as Card, Modal and Bottom Sheet. Collec
 
 ## Accessibility and localization
 
+Optional haptic feedback is available in unreleased sources and packed candidates. Applications explicitly enable it, can silence individual controls and can change the preference at runtime. See the [haptics guide](https://github.com/PedroMorenoTrujillo/neural-native/blob/main/docs/haptics.md); published beta.4 does not yet include this feature.
+
 Provide visible labels, useful validation messages and accessible names for icon actions. Localize the labels exposed by the component API; date controls also accept `locale`. Translate display labels while keeping option IDs and saved values stable.
 
 Neural Form Field arranges projected content; connect the name, requirement and help to the projected native control itself. It is separate from Angular Signal Forms' `FormField`.

@@ -8,6 +8,7 @@ import {
   output,
 } from '@angular/core';
 import { Switch, Text, View } from '@ng-native/components';
+import { NeuHaptics, type NeuHapticFeedback } from '../foundation/haptics.js';
 import {
   NEU_LIGHT_TOKENS,
   NEU_THEME,
@@ -99,6 +100,8 @@ import {
   `,
 })
 export class NeuSwitchComponent {
+  readonly haptic = input<NeuHapticFeedback | false>('selection');
+  private readonly haptics = inject(NeuHaptics);
   readonly label = input.required<string>();
   readonly labelPosition = input<'left' | 'right'>('left');
   readonly size = input<NeuSize>('md');
@@ -111,7 +114,10 @@ export class NeuSwitchComponent {
   readonly touched = input(false, { transform: booleanAttribute });
   readonly touch = output<void>();
   protected acceptChange(value: boolean): void {
-    if (!this.disabled() && !this.readonly()) this.checked.set(value);
+    if (!this.disabled() && !this.readonly() && value !== this.checked()) {
+      this.checked.set(value);
+      this.haptics.play(this.haptic());
+    }
   }
   protected markTouched(): void {
     if (!this.disabled() && !this.readonly()) this.touch.emit();

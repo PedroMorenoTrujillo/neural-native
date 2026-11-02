@@ -1,4 +1,5 @@
 import { InjectionToken, type Signal } from '@angular/core';
+export * from './haptics.js';
 export type NeuSize = 'sm' | 'md' | 'lg';
 export type NeuVariant = 'solid' | 'tonal' | 'outline' | 'text';
 export type NeuTone = 'neutral' | 'brand' | 'accent' | 'success' | 'info' | 'warning' | 'danger';

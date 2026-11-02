@@ -61,6 +61,10 @@
       "types": "./dist/theme/index.d.ts",
       "default": "./dist/theme/index.js"
     },
+    "./haptics": {
+      "types": "./dist/haptics/index.d.ts",
+      "default": "./dist/haptics/index.js"
+    },
     "./package.json": "./package.json",
     "./accordion": {
       "types": "./dist/accordion/index.d.ts",
@@ -288,10 +292,20 @@
     "@angular/common": ">=22.2.0 <23",
     "@angular/core": ">=22.2.0 <23",
     "@ng-native/components": "0.19.2",
-    "@ng-native/fabric": "0.19.2",
     "@ng-native/device": "0.19.2",
+    "@ng-native/fabric": "0.19.2",
     "@ng-native/icons": "0.19.2",
+    "expo-haptics": "^57.0.0 || ^58.0.0",
+    "expo-modules-core": "^57.0.0 || ^58.0.0",
     "react-native-svg": "15.15.4"
+  },
+  "peerDependenciesMeta": {
+    "expo-modules-core": {
+      "optional": true
+    },
+    "expo-haptics": {
+      "optional": true
+    }
   },
   "dependencies": {
     "expo-document-picker": "57.0.3",
@@ -302,6 +316,7 @@
     "@babel/core": "7.29.7",
     "@ng-native/testing": "0.19.2",
     "@vitest/coverage-v8": "5.0.3",
+    "expo-haptics": "57.0.3",
     "vitest": "5.0.3"
   },
   "releaseStage": "beta",

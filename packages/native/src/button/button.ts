@@ -21,6 +21,7 @@ import {
   type NeuTone,
 } from '../foundation/index.js';
 import { neuTonePalette } from '../foundation/tone.js';
+import type { NeuHapticFeedback } from '../foundation/haptics.js';
 
 @Component({
   selector: 'neu-button',
@@ -39,6 +40,7 @@ import { neuTonePalette } from '../foundation/tone.js';
       [aria-disabled]="unavailable()"
       [aria-busy]="loading()"
       [disabled]="unavailable()"
+      [haptic]="haptic()"
       [style.width]="fullWidth() ? '100%' : null"
       [style.alignSelf]="fullWidth() ? 'stretch' : 'flex-start'"
       [style.backgroundColor]="background()"
@@ -109,6 +111,7 @@ import { neuTonePalette } from '../foundation/tone.js';
   `,
 })
 export class NeuButtonComponent {
+  readonly haptic = input<NeuHapticFeedback | false>('press');
   readonly label = input.required<string>();
   readonly accessibilityLabel = input('');
   readonly variant = input<NeuVariant>('solid');

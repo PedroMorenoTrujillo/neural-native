@@ -1,6 +1,7 @@
 import {
   booleanAttribute,
   Component,
+  inject,
   input,
   model,
   output,
@@ -8,6 +9,7 @@ import {
 import { View, Text } from '@ng-native/components';
 import { NeuNativePressable as Pressable } from '../foundation/native-pressable.js';
 import { NeuOption } from '../foundation/mobile.js';
+import { NeuHaptics, type NeuHapticFeedback } from '../foundation/haptics.js';
 
 @Component({
   selector: 'neu-radio',
@@ -30,6 +32,7 @@ import { NeuOption } from '../foundation/mobile.js';
           disabled: disabled() || readonly() || item.disabled,
         }"
         [disabled]="disabled() || readonly() || !!item.disabled"
+        [haptic]="false"
         (press)="choose(item)"
         ><view class="radio-ring" [class.radio-selected]="value() === item.id">
           @if (value() === item.id) {
@@ -82,6 +85,8 @@ import { NeuOption } from '../foundation/mobile.js';
   `,
 })
 export class NeuRadioGroupComponent {
+  readonly haptic = input<NeuHapticFeedback | false>('selection');
+  private readonly haptics = inject(NeuHaptics);
   readonly label = input.required<string>();
   readonly options = input<readonly NeuOption[]>([]);
   readonly value = model('');
@@ -93,7 +98,9 @@ export class NeuRadioGroupComponent {
   readonly touch = output<void>();
   protected choose(item: NeuOption): void {
     if (!this.disabled() && !this.readonly() && !item.disabled) {
+      const changed = this.value() !== item.id;
       this.value.set(item.id);
+      if (changed) this.haptics.play(this.haptic());
       this.touch.emit();
     }
   }

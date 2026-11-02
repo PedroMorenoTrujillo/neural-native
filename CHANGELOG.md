@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add opt-in, application-configurable haptic feedback through Expo's native module. Keep the adapter and native module optional; support runtime and per-control opt-out, selection-change guards and bounded repeated feedback.
+
 - Size Gallery cells and mosaic columns from the measured container width, including after resizing and layout changes. Intrinsic image dimensions no longer make one column oversized and squeeze its neighbour on iOS and Android.
 
 ## 0.1.0-beta.4 — 2026-10-30
