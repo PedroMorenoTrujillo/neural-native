@@ -1,0 +1,74 @@
+name: Publish Native to npm
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+concurrency:
+  group: publish-native-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NX_DAEMON: 'false'
+      EXPO_NO_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.15.0
+          cache: npm
+      - name: Verify tag identity and main ancestry
+        run: |
+          node tooling/release-native.mjs identity
+          git merge-base --is-ancestor HEAD origin/main
+      - run: npm ci --no-audit --no-fund
+      - run: npx nx sync:check
+      - run: node --test tooling/release-native.test.mjs
+      - run: npx nx run-many -t build,typecheck,lint,test -p native --parallel=1
+      - run: npm run typecheck:showcase
+      - run: npm run test:showcase
+      - run: npm run verify:consumer
+      - name: Pack and inspect the verified public artifact
+        run: node tooling/release-native.mjs prepare
+      - uses: actions/upload-artifact@v7
+        with:
+          name: neural-native-npm
+          path: artifacts/release/*
+          if-no-files-found: error
+          retention-days: 7
+  publish:
+    needs: verify-release
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.15.0
+          registry-url: https://registry.npmjs.org
+      - run: npm install --global npm@11.21.0
+      - uses: actions/download-artifact@v8
+        with:
+          name: neural-native-npm
+          path: artifacts/release
+      - name: Reverify the exact artifact from the release gate
+        id: release
+        run: node tooling/release-native.mjs verify
+      - name: Publish with npm Trusted Publishing
+        env:
+          TARBALL: ${{ steps.release.outputs.file }}
+          CHANNEL: ${{ steps.release.outputs.channel }}
+        run: npm publish "$TARBALL" --access public --tag "$CHANNEL" --provenance
+      - name: Keep the default install on the current release
+        if: steps.release.outputs.channel != 'latest'
+        env:
+          PACKAGE_VERSION: ${{ steps.release.outputs.version }}
+        run: npm dist-tag add "@neural-ui/native@$PACKAGE_VERSION" latest
