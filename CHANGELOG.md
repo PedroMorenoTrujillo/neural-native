@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0-beta.6 — Unreleased
+## 0.1.0-beta.6 — 2026-11-04
 
 - Align Angular Native dependencies and exact peer requirements with 0.21.0. Preserve the public component APIs and optional configurable haptics.
 
