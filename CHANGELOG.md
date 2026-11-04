@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0-beta.6 — Unreleased
+
+- Align Angular Native dependencies and exact peer requirements with 0.21.0. Preserve the public component APIs and optional configurable haptics.
+
 ## 0.1.0-beta.5 — 2026-11-02
 
 - Add opt-in, application-configurable haptic feedback through Expo's native module. Keep the adapter and native module optional; support runtime and per-control opt-out, selection-change guards and bounded repeated feedback.
