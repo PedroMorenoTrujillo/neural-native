@@ -29,7 +29,7 @@ jobs:
           git merge-base --is-ancestor HEAD origin/main
       - run: npm ci --no-audit --no-fund
       - run: npx nx sync:check
-      - run: node --test tooling/release-native.test.mjs
+      - run: node --test tooling/release-native.test.mjs tooling/publish-native.test.mjs
       - run: npx nx run-many -t build,typecheck,lint,test -p native --parallel=1
       - run: npm run typecheck:showcase
       - run: npm run test:showcase
@@ -65,10 +65,7 @@ jobs:
         id: release
         run: node tooling/release-native.mjs verify
       - name: Publish with npm Trusted Publishing
-        env:
-          TARBALL: ${{ steps.release.outputs.file }}
-          CHANNEL: ${{ steps.release.outputs.channel }}
-        run: npm publish "$TARBALL" --access public --tag "$CHANNEL" --provenance
+        run: node tooling/publish-native.mjs
       - name: Keep the default install on the current release
         if: steps.release.outputs.channel != 'latest'
         env:

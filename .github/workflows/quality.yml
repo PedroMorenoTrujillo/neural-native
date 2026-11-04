@@ -25,6 +25,7 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npx nx sync:check
+      - run: node --test tooling/release-native.test.mjs tooling/publish-native.test.mjs
       - run: npm run build
       - run: npm run typecheck
       - run: npm run lint
