@@ -10,6 +10,8 @@ Before tagging, update the version, lockfile, README and changelog. Verify a pac
 
 `.github/workflows/publish.yml` runs the release checks, audits the public archive and transfers that exact checksum-verified tarball to the publication job. It publishes using npm OIDC with provenance. Prereleases get their named channel (`beta`, `rc`, etc.); Native also moves `latest` to the current release, matching the existing default-install policy.
 
+If npm accepted the archive before a later step failed, rerun the same immutable tag. The publisher resumes only when npm's existing package name, version and SHA-512 match the verified archive; it refuses different bytes and ambiguous registry errors. Keep the original tag and archive rather than rebuilding or moving the tag to hide the failed attempt.
+
 ## One-time npm setup
 
 For `@neural-ui/native`, configure a GitHub Actions trusted publisher on npm:
