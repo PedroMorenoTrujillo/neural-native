@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-beta.7 — 2026-11-06
+
+- Align framework dependencies and exact peer requirements with Angular Native 0.22.2, including upstream fixes for native input defaults, accessibility state, intrinsic flex layout and inherited color transitions.
+- Keep Input Tags and Input Mask placeholders readable in light and dark appearances, including live theme changes and custom muted tokens, by setting their native placeholder color explicitly.
+- Preserve the public component APIs and optional configurable haptics. Applications using Angular Native 0.21.0 should retain beta.6 until upgrading the framework.
+
 ## 0.1.0-beta.6 — 2026-11-04
 
 - Align Angular Native dependencies and exact peer requirements with 0.21.0. Preserve the public component APIs and optional configurable haptics.

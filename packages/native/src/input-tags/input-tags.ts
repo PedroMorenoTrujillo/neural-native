@@ -1,6 +1,8 @@
 import {
   booleanAttribute,
   Component,
+  computed,
+  inject,
   input,
   model,
   output,
@@ -10,7 +12,7 @@ import { View, Text } from '@ng-native/components';
 import { NeuNativeTextInput as TextInput } from '../foundation/native-text-input.js';
 import { NeuIconButtonComponent } from '../icon-button/icon-button.js';
 import { NeuChipComponent } from '../chip/chip.js';
-import { NEU_PLUS_ICON } from '../foundation/index.js';
+import { NEU_LIGHT_TOKENS, NEU_PLUS_ICON, NEU_THEME } from '../foundation/index.js';
 
 import { NeuNativeTextSyncDirective } from '../foundation/native-text-sync.js';
 
@@ -36,6 +38,7 @@ import { NeuNativeTextSyncDirective } from '../foundation/native-text-sync.js';
         (neuralValueChange)="draft.set($event)"
         [accessibilityLabel]="label()"
         [placeholder]="placeholder()"
+        [placeholderTextColor]="mutedColor()"
         [disabled]="disabled()"
         [readonly]="readonly()"
         (submitEditing)="add()" /><neu-icon-button
@@ -74,6 +77,10 @@ import { NeuNativeTextSyncDirective } from '../foundation/native-text-sync.js';
   `,
 })
 export class NeuInputTagsComponent {
+  private readonly theme = inject(NEU_THEME, { optional: true });
+  protected readonly mutedColor = computed(
+    () => (this.theme?.() ?? NEU_LIGHT_TOKENS).muted,
+  );
   protected readonly plus = NEU_PLUS_ICON;
   readonly label = input.required<string>();
   readonly value = model<readonly string[]>([]);

@@ -2,10 +2,12 @@ import {
   Component,
   input,
   computed,
+  inject,
 } from '@angular/core';
 import { View, Text } from '@ng-native/components';
 import { NeuNativeTextInput as TextInput } from '../foundation/native-text-input.js';
 import { NeuTextControl } from '../foundation/mobile.js';
+import { NEU_LIGHT_TOKENS, NEU_THEME } from '../foundation/index.js';
 
 export function formatMask(
   value: string,
@@ -50,6 +52,7 @@ import { NeuNativeTextSyncDirective } from '../foundation/native-text-sync.js';
       class="control"
       [neuralValue]="formatted()"
       [placeholder]="maskGuide()"
+      [placeholderTextColor]="mutedColor()"
       [accessibilityLabel]="label()"
       [accessibilityLabelledBy]="label() ? labelNativeId : undefined"
       [accessibilityHint]="fieldHint()"
@@ -71,6 +74,10 @@ import { NeuNativeTextSyncDirective } from '../foundation/native-text-sync.js';
   styleUrl: '../foundation/mobile.css',
 })
 export class NeuInputMaskComponent extends NeuTextControl {
+  private readonly theme = inject(NEU_THEME, { optional: true });
+  protected readonly mutedColor = computed(
+    () => (this.theme?.() ?? NEU_LIGHT_TOKENS).muted,
+  );
   readonly mask = input.required<string>();
   readonly keyboardType = input<'default' | 'numeric' | 'phone-pad'>('default');
   protected readonly maskGuide = computed(() => this.mask().replace(/[#A*]/g, '_'));
