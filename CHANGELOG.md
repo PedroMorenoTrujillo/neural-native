@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-beta.8 — 2026-11-17
+
+- Align framework dependencies and exact peer requirements with Angular Native 0.23.0.
+- Check the service availability signal migration and explicit image resize modes across the component catalogue. The configurable Neural haptics adapter continues to use the optional Expo native module.
+
 ## 0.1.0-beta.7 — 2026-11-06
 
 - Align framework dependencies and exact peer requirements with Angular Native 0.22.2, including upstream fixes for native input defaults, accessibility state, intrinsic flex layout and inherited color transitions.
