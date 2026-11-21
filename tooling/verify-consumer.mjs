@@ -81,7 +81,7 @@ manifest.dependencies.rxjs = JSON.parse(
 ).version;
 manifest.devDependencies.typescript = '6.0.3';
 // Vitest's Vite peer must remain available even when npm's peer resolver is
-// bypassed for an isolated consumer. Use the exact already-tested local version.
+// resolved strictly for an isolated consumer. Use the exact already-tested local version.
 manifest.devDependencies.vite = JSON.parse(
   readFileSync(createRequire(join(root, 'packages/native/package.json')).resolve('vite/package.json'), 'utf8'),
 ).version;
@@ -121,9 +121,9 @@ writeFileSync(
 );
 run(
   npm,
-  // All framework dependencies and required peers above are explicit. Avoid
-  // npm 10's edgesOut crash while resolving this fresh, isolated fixture.
-  ['install', '--no-audit', '--no-fund', '--workspaces=false', '--legacy-peer-deps'],
+  // All framework dependencies and required peers above are explicit. Use npm 11
+  // for strict peer resolution instead of the old npm 10 workaround.
+  ['install', '--no-audit', '--no-fund', '--workspaces=false', '--strict-peer-deps'],
   consumer,
 );
 const library = realpathSync(join(consumer, 'node_modules/@neural-ui/native'));

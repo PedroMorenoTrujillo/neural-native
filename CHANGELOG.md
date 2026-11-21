@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-beta.9 — 2026-11-21
+
+- Align framework dependencies and exact peer requirements with Angular Native 0.25.0, including the Angular 22.3 mount fix, Android color-scheme updates and virtual-list rendering improvements.
+- Resolve the isolated package consumer with strict npm peer checks instead of the previous npm 10 workaround.
+
 ## 0.1.0-beta.8 — 2026-11-17
 
 - Align framework dependencies and exact peer requirements with Angular Native 0.23.0.
