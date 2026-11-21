@@ -75,6 +75,9 @@ manifest.dependencies['@ng-native/icons'] = JSON.parse(
 manifest.dependencies['@ng-icons/core'] = JSON.parse(
   readFileSync(join(root, 'node_modules/@ng-icons/core/package.json'), 'utf8'),
 ).version;
+// Expo's optional web peer must match this SDK's React version. Otherwise a
+// fresh strict installation can select a newer, incompatible react-dom.
+manifest.dependencies['react-dom'] = manifest.dependencies.react;
 manifest.dependencies['react-native-svg'] = '15.15.4';
 manifest.dependencies.rxjs = JSON.parse(
   readFileSync(join(root, 'node_modules/rxjs/package.json'), 'utf8'),
