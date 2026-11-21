@@ -27,6 +27,7 @@ jobs:
         run: |
           node tooling/release-native.mjs identity
           git merge-base --is-ancestor HEAD origin/main
+      - run: npm install --global npm@11.21.0 --ignore-scripts --no-audit --no-fund
       - run: npm ci --no-audit --no-fund
       - run: npx nx sync:check
       - run: node --test tooling/release-native.test.mjs tooling/publish-native.test.mjs
