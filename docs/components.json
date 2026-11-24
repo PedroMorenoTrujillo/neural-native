@@ -187,8 +187,8 @@
     "entry": "data-view",
     "name": "Data View",
     "symbol": "NeuDataViewComponent",
-    "example": "<neu-data-view  />",
-    "inputs": "items, query, descending, loading, error, searchLabel, sortLabel, refreshLabel, emptyLabel",
+    "example": "<neu-data-view [items]=\"people\" [virtualHeight]=\"360\" />",
+    "inputs": "items, itemTemplate, virtualHeight, query, descending, loading, error, searchLabel, sortLabel, refreshLabel, emptyLabel",
     "outputs": "queryChange, descendingChange, selected, refresh"
   },
   {
@@ -502,6 +502,14 @@
     "example": "<neu-uploader label=\"Documents\" chooseLabel=\"Choose files\" />",
     "inputs": "label, files, disabled, types, multiple, maxFiles, maxBytes, chooseLabel, uploadLabel, removeLabel, upload",
     "outputs": "filesChange, selected, completed, rejected"
+  },
+  {
+    "entry": "section-list",
+    "name": "Section List",
+    "symbol": "NeuSectionListComponent",
+    "example": "<neu-section-list [sections]=\"groups\" [height]=\"360\" (selected)=\"select($event)\" />",
+    "inputs": "sections, height, itemHeight, headerHeight, stickyHeaders, loading, error, emptyLabel, refreshEnabled, refreshing, refreshLabel",
+    "outputs": "selected, refresh"
   },
   {
     "entry": "virtual-list",

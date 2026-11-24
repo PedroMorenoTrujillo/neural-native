@@ -107,10 +107,12 @@ import { NeuGalleryComponent } from '@neural-ui/native/gallery';
 | Selection | Select, Autocomplete, Listbox, Cascade Select, Tree Select, Pick List, Calendar, Date Input, Filter Bar |
 | Navigation | Nav, Tabs, Stepper, Menu, Context Menu, Sidebar |
 | Surfaces | Card, Panel, Accordion, Divider, Modal, Bottom Sheet, Confirm Dialog, Popover |
-| Data and media | Data View, Virtual List, Tree, Timeline, Avatar, Avatar Group, Stats Card, Carousel, Gallery, Image Viewer |
+| Data and media | Data View, Virtual List, Section List, Tree, Timeline, Avatar, Avatar Group, Stats Card, Carousel, Gallery, Image Viewer |
 | Feedback | Alert, Toast, Chip, Badge, Spinner, Progress Bar, Meter Group, Skeleton, Empty State, Notification Center |
 
 Theme and shared utilities have their own `@neural-ui/native/theme` and `@neural-ui/native/foundation` entries. See the [component catalogue](https://github.com/PedroMorenoTrujillo/neural-native/blob/main/docs/components.json) and [native examples](https://github.com/PedroMorenoTrujillo/neural-native/tree/main/apps/showcase/src/app).
+
+For virtualized search results and sticky group headings, see the [long and grouped lists guide](https://github.com/PedroMorenoTrujillo/neural-native/blob/main/docs/lists.md).
 
 ## State and forms
 

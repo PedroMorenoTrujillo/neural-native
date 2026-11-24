@@ -10,7 +10,7 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { View, Text } from '@ng-native/components';
+import { View, Text, VirtualList, VirtualListRow } from '@ng-native/components';
 import { NeuNativePressable as Pressable } from '../foundation/native-pressable.js';
 import { AnimatedStyle } from '@ng-native/components/animations';
 import { NeuDataViewRowMotionDirective } from './data-view-row.js';
@@ -34,6 +34,8 @@ export type { NeuDataViewItemContext } from './data-view-templates.js';
     Text,
     TextInput,
     Pressable,
+    VirtualList,
+    VirtualListRow,
     NeuDataViewRowMotionDirective,
     AnimatedStyle,
     NgTemplateOutlet,
@@ -42,7 +44,14 @@ export type { NeuDataViewItemContext } from './data-view-templates.js';
     NeuAlertComponent,
     NeuEmptyStateComponent,
   ],
-  template: `<view class="stack"
+  template: `<ng-template #rowContents let-item let-index="index">
+    @if (resolvedItemTemplate(); as template) {
+      <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: item, index }" />
+    } @else {
+      <text class="title">{{ item.label }}</text><text class="muted">{{ item.description }}</text>
+    }
+  </ng-template>
+  <view class="stack"
     ><view class="data-toolbar"
       ><neu-icon-button
         [label]="sortLabel()"
@@ -72,19 +81,31 @@ export type { NeuDataViewItemContext } from './data-view-templates.js';
       <neu-skeleton />
     } @else if (error()) {
       <neu-alert [message]="error()" />
+    } @else if (!displayed().length) {
+      <neu-empty-state [title]="emptyLabel()" />
+    } @else if (viewportHeight(); as height) {
+      <virtual-list #list [items]="displayed()" [keyExtractor]="itemKey"
+        [style.height]="height" [rowGap]="12" keyboardShouldPersistTaps="handled">
+        @for (row of list.window(); track row.slot) {
+          <view [virtualListRow]="row" [accessibilityElementsHidden]="!!row.parked"
+            [importantForAccessibility]="row.parked ? 'no-hide-descendants' : 'auto'">
+            @for (item of [row.item]; track item.id) {
+              <pressable class="data-item" [class.surface]="!resolvedItemTemplate()" [class.outline]="!resolvedItemTemplate()"
+                accessibilityRole="button" [accessibilityLabel]="item.label" [accessible]="!row.parked"
+                [disabled]="!!row.parked || !!item.disabled" (press)="!row.parked && choose(item)">
+                <ng-container [ngTemplateOutlet]="rowContents" [ngTemplateOutletContext]="{ $implicit: item, index: row.index }" />
+              </pressable>
+            }
+          </view>
+        }
+      </virtual-list>
     } @else {
       @for (item of displayed(); track item.id) {
         <pressable class="data-item" [neuDataRowIndex]="$index" #rowMotion="neuDataRowMotion"
           [animatedStyle]="rowMotion.animated" [class.surface]="!resolvedItemTemplate()" [class.outline]="!resolvedItemTemplate()"
           accessibilityRole="button" [accessibilityLabel]="item.label" [disabled]="!!item.disabled" (press)="choose(item)">
-          @if (resolvedItemTemplate(); as template) {
-            <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: item, index: $index }" />
-          } @else {
-            <text class="title">{{ item.label }}</text><text class="muted">{{ item.description }}</text>
-          }
+          <ng-container [ngTemplateOutlet]="rowContents" [ngTemplateOutletContext]="{ $implicit: item, index: $index }" />
         </pressable>
-      } @empty {
-        <neu-empty-state [title]="emptyLabel()" />
       }
     }
   </view>`,
@@ -95,8 +116,15 @@ export class NeuDataViewComponent {
   readonly items = input<readonly NeuOption[]>([]);
   /** Explicit template takes precedence over a projected neuDataViewItem. */
   readonly itemTemplate = input<TemplateRef<NeuDataViewItemContext>>();
+  /** A positive viewport height enables internally scrolling, measured rows. */
+  readonly virtualHeight = input<number>();
   private readonly itemContent = contentChild(NeuDataViewItemDirective);
   protected readonly resolvedItemTemplate = computed(() => this.itemTemplate() ?? this.itemContent()?.templateRef);
+  protected readonly viewportHeight = computed(() => {
+    const height = this.virtualHeight();
+    return height !== undefined && Number.isFinite(height) && height > 0 ? height : undefined;
+  });
+  protected readonly itemKey = (item: NeuOption) => item.id;
   readonly query = model('');
   readonly descending = model(false);
   readonly loading = input(false, { transform: booleanAttribute });

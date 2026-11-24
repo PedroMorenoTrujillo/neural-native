@@ -1,0 +1,25 @@
+.section-actions {
+  align-items: flex-end;
+}
+.section-list {
+  flex: 1;
+  min-height: 0;
+}
+.section-heading,
+.section-item {
+  flex: 1;
+  justify-content: center;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.section-heading {
+  background-color: var(--neu-surface, #ffffff);
+  border-bottom-width: 1px;
+  border-bottom-color: var(--neu-surface-border, #e1e6ed);
+}
+.section-item {
+  gap: 2px;
+  background-color: var(--neu-surface, #ffffff);
+  border-bottom-width: 1px;
+  border-bottom-color: var(--neu-surface-border, #e1e6ed);
+}

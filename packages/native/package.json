@@ -266,6 +266,10 @@
       "types": "./dist/virtual-list/index.d.ts",
       "default": "./dist/virtual-list/index.js"
     },
+    "./section-list": {
+      "types": "./dist/section-list/index.d.ts",
+      "default": "./dist/section-list/index.js"
+    },
     "./carousel": {
       "types": "./dist/carousel/index.d.ts",
       "default": "./dist/carousel/index.js"

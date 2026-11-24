@@ -65,6 +65,7 @@ import {
   NeuTreeSelectComponent,
   NeuUploaderComponent,
   NeuVirtualListComponent,
+  NeuSectionListComponent,
 } from '@neural-ui/native';
 const DEMO_RED_IMAGE =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAAeUlEQVR4nO3PwQkAIBDAsFvQn8u7jUP4CEKhA6Rz9vq64YIGtKABLWhACxrQgga0oAEtaEALGtCCBrSgAS1oQAsa0IIGtKABLWhACxrQgga0oAEtaEALGtCCBrSgAS1oQAsa0IIGtKABLWhACxrQgga0oAEtaEALHrtYAqFa9GofXgAAAABJRU5ErkJggg==';
@@ -870,6 +871,19 @@ export const NATIVE_DEMOS: readonly NativeDemo[] = [
     name: 'Uploader',
     component: NeuUploaderComponent,
     inputs: { label: 'Documentos', chooseLabel: 'Elegir archivos' },
+  },
+  {
+    entry: 'section-list',
+    name: 'Section List',
+    component: NeuSectionListComponent,
+    inputs: {
+      sections: [
+        { key: 'today', title: 'Hoy', data: [{ id: 'order', label: 'Pedido enviado', description: '09:41' }] },
+        { key: 'yesterday', title: 'Ayer', data: [{ id: 'review', label: 'Revisión completada', description: '16:20' }] },
+      ],
+      height: 260,
+      emptyLabel: 'No hay actividad',
+    },
   },
   {
     entry: 'virtual-list',
