@@ -4,7 +4,7 @@
 
 Neural Native brings the Neural visual language to [Angular Native](https://ng-native.com): 64 mobile component entries, Angular signals, typed APIs, shared themes and modular imports.
 
-**Public beta: `0.1.0-beta.11`.** APIs and framework compatibility may change before 1.0. Pin the version in your application lockfile and check compatibility before updating Angular Native.
+**Beta: `0.1.0-beta.12`.** APIs and framework compatibility may change before 1.0. Keep your Angular Native packages on the same release and commit your application lockfile.
 
 ## Documentation
 
@@ -18,18 +18,18 @@ Neural Native brings the Neural visual language to [Angular Native](https://ng-n
 Start with the compatible Angular Native template:
 
 ```sh
-npx create-expo-app@latest my-neural-app --template @ng-native/template@0.27.0
+npx create-expo-app@latest my-neural-app --template @ng-native/template@0.28.0
 cd my-neural-app
 npm install @neural-ui/native@beta
 ```
 
-In an existing Angular Native 0.27.0 application, run only the last command. The beta is published under the npm `beta` tag; `@beta` is intentional. Applications on Angular Native 0.21.0 should keep Neural Native 0.1.0-beta.6. Applications on Angular Native 0.19.2 should keep Neural Native 0.1.0-beta.5. Applications on Angular Native 0.18.2 should keep Neural Native 0.1.0-beta.2 until they update the framework.
+In an existing Angular Native 0.28.x application, run only the last command. The beta is published under the npm `beta` tag; `@beta` is intentional. Applications on Angular Native 0.27.0 can keep Neural Native 0.1.0-beta.11. Applications on Angular Native 0.21.0 should keep Neural Native 0.1.0-beta.6. Applications on Angular Native 0.19.2 should keep Neural Native 0.1.0-beta.5. Applications on Angular Native 0.18.2 should keep Neural Native 0.1.0-beta.2 until they update the framework.
 
 ### Compatibility
 
 | Dependency | This beta |
 | --- | --- |
-| Angular Native packages | 0.27.0 |
+| Angular Native packages | `~0.28.0` (0.28.x) |
 | Angular | 22.2.2 tested; peers >=22.2.0 <23 |
 | Expo / React Native | 57.0.27 / 0.86.3 tested application baseline |
 | Current framework template | Expo 58.0.16 / React Native 0.88.0: consumer tests and iOS/Android bundles verified |
@@ -182,7 +182,7 @@ Neural Native is maintained by Pedro Moreno Trujillo and shares its visual ident
 
 ## Español
 
-Neural Native ofrece componentes Angular nativos para iOS y Android. Esta beta.10 se instala con `npm install @neural-ui/native@beta` sobre una aplicación Angular Native 0.27.0. Para Angular Native 0.21.0, conserva beta.6. Si tu aplicación utiliza Angular Native 0.19.2, conserva beta.5; para Angular Native 0.18.2, conserva Neural Native 0.1.0-beta.2 hasta actualizar el framework. Los controles utilizan signals, un tema compartido e imports modulares; tu aplicación conserva el estado y decide cómo guardar los datos. Desde beta.5 puedes activar la respuesta háptica opcional, silenciar controles concretos y cambiar esa preferencia durante la ejecución.
+Neural Native ofrece componentes Angular nativos para iOS y Android. La beta.12 se instala con `npm install @neural-ui/native@beta` sobre una aplicación Angular Native 0.28.x. Para Angular Native 0.27.0, conserva beta.11; para 0.21.0, conserva beta.6. Si tu aplicación utiliza Angular Native 0.19.2, conserva beta.5; para Angular Native 0.18.2, conserva Neural Native 0.1.0-beta.2 hasta actualizar el framework. Los controles utilizan signals, un tema compartido e imports modulares; tu aplicación conserva el estado y decide cómo guardar los datos. Desde beta.5 puedes activar la respuesta háptica opcional, silenciar controles concretos y cambiar esa preferencia durante la ejecución.
 
 ## License
 
