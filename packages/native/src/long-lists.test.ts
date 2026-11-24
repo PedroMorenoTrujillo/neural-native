@@ -115,3 +115,23 @@ test('SectionList retains a localized refresh action in empty and error states',
   await pressRefresh();
   expect(refresh).toHaveBeenCalledTimes(2);
 });
+
+test.each([
+  ['android', 'AndroidSwipeRefreshLayout'],
+  ['ios', 'PullToRefreshView'],
+] as const)('SectionList forwards pull to refresh through the %s native control', async (os, nativeView) => {
+  const refresh = vi.fn();
+  const r = await render(NeuSectionListComponent, {
+    os,
+    inputs: { sections, refreshEnabled: true },
+    on: { refresh },
+  });
+  const control = r.fabric.find(nativeView);
+  expect(control).toBeTruthy();
+  await fireEvent(control!, 'refresh');
+  expect(refresh).toHaveBeenCalledTimes(1);
+  r.componentRef.setInput('refreshing', true);
+  await r.detectChanges();
+  await fireEvent(control!, 'refresh');
+  expect(refresh).toHaveBeenCalledTimes(1);
+});
