@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-beta.11 - 2026-11-24
+
+- Add the grouped `SectionList` with sticky headers and native pull-to-refresh on Android and iOS.
+- Allow `DataView` to render long collections in a bounded virtual viewport while retaining its search, ordering and item templates.
+
 ## 0.1.0-beta.10 - 2026-11-23
 
 - Align the supported Angular Native baseline with 0.27.0.

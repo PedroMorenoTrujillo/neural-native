@@ -61,6 +61,7 @@ export * from './cascade-select/index.js';
 export * from './pick-list/index.js';
 export * from './notification-center/index.js';
 export * from './virtual-list/index.js';
+export * from './section-list/index.js';
 export * from './carousel/index.js';
 export * from './image-viewer/index.js';
 export * from './gallery/index.js';
